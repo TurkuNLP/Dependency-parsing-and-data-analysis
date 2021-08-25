@@ -20,7 +20,7 @@ def count_words(data):
             continue
     return count
 
-print(count_words(sys.argv[1]))
+#print(count_words(sys.argv[1]))
 
 def most_frequent(data, col, how_many,*focus):
     cols = ["ID","FORM","LEMMA","UPOS","XPOS","FEAT","HEAD","DEPREL","DEPS","MISC"] #the columns of the conllu format
