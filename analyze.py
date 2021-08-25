@@ -20,6 +20,8 @@ def count_words(data):
             continue
     return count
 
+print(count_words(sys.argv[1]))
+
 def most_frequent(data, col, how_many,*focus):
     cols = ["ID","FORM","LEMMA","UPOS","XPOS","FEAT","HEAD","DEPREL","DEPS","MISC"] #the columns of the conllu format
     my_counter = Counter()
@@ -186,6 +188,6 @@ def print_kwic_lemma(data, target_word, col, max):
         to_return.append(" ".join(tags))
     return("\n\n".join(to_return))
 
-print(print_kwic_lemma(sys.argv[1], "olla", "LEMMA", 2))
+#print(print_kwic_lemma(sys.argv[1], "olla", "LEMMA", 2))
 
 #print(count_deprel("LEMMA", "nsubj", sys.argv[1])) 
