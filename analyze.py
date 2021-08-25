@@ -170,5 +170,22 @@ def count_deprel(column, searched_deprel, data):#, col):
     return("Total counts for the the dependency relation "  + searched_deprel + ": " + str(counter)+"\n" + "The most frequent " + " " +  column + ":" + "\n" +result)
 
 
+def print_kwic_lemma(data, target_word, col, max):
+    cols = ["ID","FORM","LEMMA","UPOS","XPOS","FEAT","HEAD","DEPREL","DEPS","MISC"] #the columns of the conllu format
+    to_return = []
+    text_count = 0
+    for reg, text in read_text(open_f(data)):
+        text_count +=1
+        if text_count > max:
+            break
+        else:
+            tags = []
+            words = [word_line[2] for word_line in text]
+            if target_word in set(words):
+                tags = [word_line[cols.index(col)] for word_line in text]
+        to_return.append(" ".join(tags))
+    return("\n\n".join(to_return))
+
+print(print_kwic_lemma(sys.argv[1], "olla", "LEMMA", 2))
 
 #print(count_deprel("LEMMA", "nsubj", sys.argv[1])) 
